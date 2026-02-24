@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agents IA de A à Z – Guide Pratique 2025/2026</title>
+  <style>
+    :root {
+      --primary: #f59e0b;       /* orange ambré principal */
+      --primary-dark: #d97706;  /* plus foncé pour hover/active */
+      --bg: #0f172a;            /* fond sombre bleu nuit */
+      --card: #1e293b;          /* cartes légèrement plus claires */
+      --text: #fffbeb;          /* texte clair chaud */
+      --text-light: #fcd34d;    /* accents jaunes-orangés */
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      padding: 5rem 1rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid #334155;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.6rem;
+      color: white;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    nav {
+      background: var(--card);
+      padding: 1.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #334155;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      padding: 0.7rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      transition: all 0.25s;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--primary);
+      color: #0f172a;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 3.5rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 2.8rem;
+      margin-bottom: 3rem;
+      border: 1px solid #334155;
+      scroll-margin-top: 120px;
+    }
+
+    h2 {
+      color: var(--primary);
+      margin-bottom: 1.4rem;
+      font-size: 2.2rem;
+      border-left: 6px solid var(--primary);
+      padding-left: 1.2rem;
+    }
+
+    h3 {
+      color: #fcd34d;
+      margin: 2rem 0 1rem;
+      font-size: 1.5rem;
+    }
+
+    .level {
+      display: inline-block;
+      background: rgba(245,158,11,0.18);
+      color: var(--primary);
+      padding: 0.4rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    pre {
+      background: #0f172a;
+      padding: 1.6rem;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-size: 0.97rem;
+      border: 1px solid #334155;
+      margin: 1.4rem 0;
+    }
+
+    code { font-family: 'Consolas', 'Monaco', monospace; }
+    .highlight { color: #fcd34d; }
+
+    ul, ol { padding-left: 1.8rem; margin: 1rem 0; }
+    li { margin-bottom: 0.8rem; }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover { text-decoration: underline; color: #fbbf24; }
+
+    footer {
+      text-align: center;
+      padding: 4rem 1rem 2.5rem;
+      color: var(--text-light);
+      border-top: 1px solid #334155;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.4rem; }
+      nav ul { flex-direction: column; gap: 0.8rem; }
+      section { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Créer des Agents IA</h1>
+  <p class="subtitle">Guide ultra-complet et à jour – De zéro à la production en 2025/2026</p>
+  <p style="font-size:1.1rem; max-width:700px; margin:1rem auto; color:#fcd34d;">
+    Apprends le ReAct, LangGraph, CrewAI, AutoGen… avec les meilleures ressources actuelles
+  </p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#etape1">Étape 1 – ReAct basique</a></li>
+    <li><a href="#etape2">Étape 2 – Multi-outils</a></li>
+    <li><a href="#etape3">Étape 3 – Mémoire</a></li>
+    <li><a href="#etape4">Étape 4 – LangGraph</a></li>
+    <li><a href="#etape5">Étape 5+ – Production</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section id="intro">
+    <h2>Introduction – Pourquoi les agents IA explosent en 2025/2026 ?</h2>
+    <p class="level">Niveau ★☆☆☆☆</p>
+    <p>Un agent IA moderne n’est plus juste un chatbot. C’est un système autonome qui :</p>
+    <ul>
+      <li>raisonne étape par étape</li>
+      <li>utilise des outils (API, calculatrice, web, code…)</li>
+      <li>garde une mémoire longue</li>
+      <li>collabore avec d’autres agents</li>
+      <li>prend des décisions complexes sur plusieurs étapes</li>
+    </ul>
+    <p>Les frameworks les plus utilisés aujourd’hui :</p>
+    <ul>
+      <li><strong>LangGraph</strong> (recommandé par LangChain pour la prod)</li>
+      <li><strong>CrewAI</strong> (très simple pour multi-agents rôle-based)</li>
+      <li><strong>AutoGen</strong> (Microsoft – conversations entre agents)</li>
+      <li><strong>OpenAI Swarm / Agents</strong> (léger et géré)</li>
+    </ul>
+    <p>Ressources clés pour démarrer :</p>
+    <ul>
+      <li>→ <a href="https://www.langchain.com/langgraph" target="_blank">Site officiel LangGraph</a></li>
+      <li>→ <a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Cours gratuit Intro to LangGraph (LangChain Academy)</a></li>
+      <li>→ <a href="https://www.crewai.com/" target="_blank">CrewAI officiel</a></li>
+    </ul>
+  </section>
+
+  <section id="etape1">
+    <h2>Étape 1 – Premier agent ReAct ultra-basique</h2>
+    <p class="level">Niveau ★★☆☆☆</p>
+    <p>Le pattern ReAct = **Reason** (pense) + **Act** (agis) + observe le résultat → boucle jusqu’à la réponse finale.</p>
+    <pre><code>from openai import OpenAI
+client = OpenAI()
+
+def obtenir_meteo(ville: str) -> str:
+    <span class="highlight">return f"{ville} : 24°C, ensoleillé (simulation 2026)"</span>
+
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "obtenir_meteo",
+        "description": "Récupère la météo d'une ville",
+        "parameters": {
+            "type": "object",
+            "properties": {"ville": {"type": "string"}},
+            "required": ["ville"]
+        }
+    }
+}]
+
+question = "Quel temps fait-il à Osasco aujourd'hui ?"
+messages = [{"role": "user", "content": question}]
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=messages,
+    tools=tools
+)
+
+# ← Ici commence la vraie boucle ReAct (voir étape 2)
+print(response.choices[0].message.tool_calls)
+</code></pre>
+    <p>Pour aller plus loin :</p>
+    <ul>
+      <li><a href="https://www.aurelio.ai/learn/langchain-agents-intro" target="_blank">Tutoriel Agents LangChain 2025 (James Briggs)</a></li>
+      <li><a href="https://www.ibm.com/fr-fr/think/tutorials/using-langchain-tools-to-build-an-ai-agent" target="_blank">Tutoriel en français – IBM watsonx + LangChain</a></li>
+    </ul>
+  </section>
+
+  <section id="etape2">
+    <h2>Étape 2 – Boucle complète + plusieurs outils</h2>
+    <p class="level">Niveau ★★☆☆☆ → ★★★☆☆</p>
+    <p>Ajoute une boucle while, plusieurs outils, gestion d’erreurs.</p>
+    <pre><code># Extrait simplifié de boucle ReAct
+while True:
+    resp = client.chat.completions.create(...)
+    if resp.choices[0].message.tool_calls:
+        for call in resp.choices[0].message.tool_calls:
+            if call.function.name == "obtenir_meteo":
+                args = json.loads(call.function.arguments)
+                result = obtenir_meteo(**args)
+                messages.append({"role": "tool", "content": result, "tool_call_id": call.id})
+    else:
+        final = resp.choices[0].message.content
+        break
+</code></pre>
+    <p>Ressources :</p>
+    <ul>
+      <li><a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank">Pourquoi passer à LangGraph (docs officielles)</a></li>
+      <li><a href="https://www.datacamp.com/fr/tutorial/crewai-vs-langgraph-vs-autogen" target="_blank">Comparatif CrewAI vs LangGraph vs AutoGen (en français)</a></li>
+    </ul>
+  </section>
+
+  <section id="etape3">
+    <h2>Étape 3 – Ajouter de la mémoire persistante</h2>
+    <p class="level">Niveau ★★★☆☆</p>
+    <p>Options simples → avancées :</p>
+    <ul>
+      <li>Liste Python (history dans messages)</li>
+      <li>ConversationBufferMemory (LangChain)</li>
+      <li>Vector store + RAG pour mémoire très longue</li>
+    </ul>
+    <p>Exemple rapide LangChain :</p>
+    <pre><code>from langchain.memory import ConversationBufferMemory
+memory = ConversationBufferMemory(return_messages=True)
+# Puis l'injecter dans l'agent
+</code></pre>
+  </section>
+
+  <section id="etape4">
+    <h2>Étape 4 – Contrôle moderne avec LangGraph</h2>
+    <p class="level">Niveau ★★★★☆</p>
+    <p>LangGraph remplace la boucle while par un **graphe d’état** → branches, cycles, human-in-the-loop, persistance, debug facile.</p>
+    <p>Exemple minimal :</p>
+    <pre><code>from langgraph.graph import StateGraph, START, END
+
+graph = StateGraph(...)
+graph.add_node("agent", call_llm)
+graph.add_node("tools", execute_tools)
+graph.add_conditional_edges("agent", should_continue)
+graph.add_edge("tools", "agent")
+graph.add_edge(START, "agent")
+app = graph.compile()
+</code></pre>
+    <p>Meilleures ressources 2025/2026 :</p>
+    <ul>
+      <li><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Cours officiel gratuit Intro LangGraph</a></li>
+      <li><a href="https://www.langchain.com/langgraph" target="_blank">LangGraph – Site principal</a></li>
+      <li><a href="https://www.agentframeworkhub.com/blog/langgraph-tutorial-beginners-guide-2026" target="_blank">Guide débutant complet LangGraph 2026</a></li>
+    </ul>
+  </section>
+
+  <section id="etape5">
+    <h2>Étape 5+ – Vers la production & multi-agents</h2>
+    <p class="level">Niveau ★★★★★</p>
+    <p>Thèmes avancés :</p>
+    <ul>
+      <li>Multi-agents (équipe : chercheur + rédacteur + critique)</li>
+      <li>Exécution code sécurisée (E2B, sandbox Docker)</li>
+      <li>Observabilité (LangSmith, Phoenix)</li>
+      <li>Déploiement (FastAPI + Celery / RabbitMQ, Vercel, Fly.io)</li>
+      <li>LLM locaux (Llama 3.3, Qwen 2.5, DeepSeek-R1)</li>
+    </ul>
+    <p>Ressources production 2025/2026 :</p>
+    <ul>
+      <li><a href="https://www.getmaxim.ai/articles/top-5-ai-agent-frameworks-in-2025-a-practical-guide-for-ai-builders" target="_blank">Top 5 frameworks agents 2025 (guide pratique)</a></li>
+      <li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks-2025" target="_blank">Meilleurs frameworks open-source 2025</a></li>
+      <li><a href="https://www.langflow.org/blog/the-complete-guide-to-choosing-an-ai-agent-framework-in-2025" target="_blank">Guide complet choix framework 2025</a></li>
+    </ul>
+    <p>Objectif réaliste fin 2026 : agent autonome 24/7 avec supervision minimale.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Guide créé pour AMIN – Osasco, BR • 2025–2026<br>
+  Thème chaleureux orange/ambre • Partage & modifie librement 🚀</p>
+</footer>
+
+</body>
+</html>
