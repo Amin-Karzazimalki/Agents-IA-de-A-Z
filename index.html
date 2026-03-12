@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Agents from A to Z – Practical Guide 2025/2026 | Agents IA de A à Z | Agentes IA de A a Z | وكلاء الذكاء الاصطناعي من الألف إلى الياء</title>
+  <title>AI Agents A to Z • Agents IA de A à Z • Agentes IA de A a Z • وكلاء الذكاء الاصطناعي من الألف إلى الياء</title>
   <style>
     :root {
       --primary: #f59e0b;
@@ -25,16 +25,21 @@
 
     header {
       background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      padding: 4rem 1rem 2.5rem;
+      padding: 5rem 1rem 3rem;
       text-align: center;
       border-bottom: 1px solid #334155;
     }
 
-    h1 { font-size: 2.8rem; margin-bottom: 0.6rem; color: white; }
+    h1 { font-size: 3rem; margin-bottom: 0.6rem; color: white; }
 
-    .subtitle { font-size: 1.3rem; color: var(--text-light); max-width: 800px; margin: 0 auto; }
+    .subtitle {
+      font-size: 1.4rem;
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
 
-    /* Language Switcher */
+    /* Language selector */
     .lang-switcher {
       background: var(--card);
       padding: 1.2rem;
@@ -65,20 +70,30 @@
       color: #0f172a;
     }
 
-    /* Content sections – hidden by default except English */
+    /* Content visibility */
     .lang-content { display: none; }
-    #en:checked ~ main #content-en { display: block; }
-    #fr:checked ~ main #content-fr { display: block; }
-    #pt:checked ~ main #content-pt { display: block; }
-    #ar:checked ~ main #content-ar { display: block; }
 
-    /* RTL adjustments for Arabic */
-    #ar:checked ~ body { direction: rtl; text-align: right; }
-    #ar:checked ~ body section { text-align: right; }
-    #ar:checked ~ body pre { direction: ltr; text-align: left; } /* code reste LTR */
-    #ar:checked ~ body h2 { border-left: none; border-right: 6px solid var(--primary); padding-right: 1.2rem; padding-left: 0; }
+    #lang-en:checked ~ main .en { display: block; }
+    #lang-fr:checked ~ main .fr { display: block; }
+    #lang-pt:checked ~ main .pt { display: block; }
+    #lang-ar:checked ~ main .ar { display: block; }
 
-    main { max-width: 1100px; margin: 3rem auto; padding: 0 1.5rem; }
+    /* Arabic RTL */
+    #lang-ar:checked ~ body { direction: rtl; text-align: right; }
+    #lang-ar:checked ~ body section,
+    #lang-ar:checked ~ body h2,
+    #lang-ar:checked ~ body p,
+    #lang-ar:checked ~ body ul { text-align: right; }
+    #lang-ar:checked ~ body pre,
+    #lang-ar:checked ~ body code { direction: ltr; text-align: left; }
+
+    #lang-ar:checked ~ body h2 { border-left: none; border-right: 6px solid var(--primary); padding-right: 1.2rem; padding-left: 0; }
+
+    main {
+      max-width: 1100px;
+      margin: 3.5rem auto;
+      padding: 0 1.5rem;
+    }
 
     section {
       background: var(--card);
@@ -86,6 +101,7 @@
       padding: 2.8rem;
       margin-bottom: 3rem;
       border: 1px solid #334155;
+      scroll-margin-top: 120px;
     }
 
     h2 {
@@ -102,6 +118,7 @@
       color: var(--primary);
       padding: 0.4rem 1.2rem;
       border-radius: 9999px;
+      font-size: 1rem;
       margin-bottom: 1.2rem;
     }
 
@@ -113,10 +130,19 @@
       font-size: 0.97rem;
       border: 1px solid #334155;
       margin: 1.4rem 0;
-      direction: ltr; /* code toujours LTR */
     }
 
-    a { color: var(--primary); text-decoration: none; font-weight: 500; }
+    code { font-family: 'Consolas', 'Monaco', monospace; }
+    .highlight { color: #fcd34d; }
+
+    ul, ol { padding-left: 1.8rem; margin: 1rem 0; }
+    li { margin-bottom: 0.8rem; }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
     a:hover { text-decoration: underline; color: #fbbf24; }
 
     footer {
@@ -124,175 +150,711 @@
       padding: 4rem 1rem 2.5rem;
       color: var(--text-light);
       border-top: 1px solid #334155;
+      font-size: 1rem;
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 2.2rem; }
+      h1 { font-size: 2.4rem; }
       .lang-switcher label { padding: 0.6rem 1rem; font-size: 0.95rem; }
+      nav ul { flex-direction: column; gap: 0.8rem; }
+      section { padding: 2rem; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1 id="title-en">AI Agents from A to Z</h1>
-  <h1 id="title-fr" style="display:none;">Agents IA de A à Z</h1>
-  <h1 id="title-pt" style="display:none;">Agentes IA de A a Z</h1>
-  <h1 id="title-ar" style="display:none;">وكلاء الذكاء الاصطناعي من الألف إلى الياء</h1>
+  <h1 class="en">AI Agents from A to Z</h1>
+  <h1 class="fr" style="display:none;">Agents IA de A à Z</h1>
+  <h1 class="pt" style="display:none;">Agentes IA de A a Z</h1>
+  <h1 class="ar" style="display:none;">وكلاء الذكاء الاصطناعي من الألف إلى الياء</h1>
 
-  <p class="subtitle" id="subtitle-en">Practical Guide 2025/2026 – Build autonomous AI agents step by step</p>
-  <p class="subtitle" id="subtitle-fr" style="display:none;">Guide pratique 2025/2026 – Créez des agents IA autonomes pas à pas</p>
-  <p class="subtitle" id="subtitle-pt" style="display:none;">Guia prático 2025/2026 – Crie agentes de IA autônomos passo a passo</p>
-  <p class="subtitle" id="subtitle-ar" style="display:none;">دليل عملي 2025/2026 – بناء وكلاء ذكاء اصطناعي مستقلين خطوة بخطوة</p>
+  <p class="subtitle en">Complete practical guide – From zero to production in 2025/2026</p>
+  <p class="subtitle fr" style="display:none;">Guide ultra-complet et à jour – De zéro à la production en 2025/2026</p>
+  <p class="subtitle pt" style="display:none;">Guia prático completo – Do zero à produção em 2025/2026</p>
+  <p class="subtitle ar" style="display:none;">دليل عملي كامل – من الصفر إلى الإنتاج في 2025/2026</p>
+
+  <p style="font-size:1.1rem; max-width:700px; margin:1rem auto; color:#fcd34d;" class="en">
+    Learn ReAct, LangGraph, CrewAI, AutoGen… with the best current resources
+  </p>
+  <p style="font-size:1.1rem; max-width:700px; margin:1rem auto; color:#fcd34d;" class="fr" style="display:none;">
+    Apprends le ReAct, LangGraph, CrewAI, AutoGen… avec les meilleures ressources actuelles
+  </p>
+  <p style="font-size:1.1rem; max-width:700px; margin:1rem auto; color:#fcd34d;" class="pt" style="display:none;">
+    Aprenda ReAct, LangGraph, CrewAI, AutoGen… com os melhores recursos atuais
+  </p>
+  <p style="font-size:1.1rem; max-width:700px; margin:1rem auto; color:#fcd34d;" class="ar" style="display:none;">
+    تعلم ReAct و LangGraph و CrewAI و AutoGen… مع أفضل الموارد الحالية
+  </p>
 </header>
 
 <div class="lang-switcher">
-  <input type="radio" id="en" name="lang" checked>
-  <label for="en">English</label>
+  <input type="radio" id="lang-en" name="lang" checked>
+  <label for="lang-en">English</label>
 
-  <input type="radio" id="fr" name="lang">
-  <label for="fr">Français</label>
+  <input type="radio" id="lang-fr" name="lang">
+  <label for="lang-fr">Français</label>
 
-  <input type="radio" id="pt" name="lang">
-  <label for="pt">Português (BR)</label>
+  <input type="radio" id="lang-pt" name="lang">
+  <label for="lang-pt">Português (BR)</label>
 
-  <input type="radio" id="ar" name="lang">
-  <label for="ar">العربية</label>
+  <input type="radio" id="lang-ar" name="lang">
+  <label for="lang-ar">العربية</label>
 </div>
+
+<nav>
+  <ul class="en">
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#etape1">Step 1 – Basic ReAct</a></li>
+    <li><a href="#etape2">Step 2 – Multi-tools</a></li>
+    <li><a href="#etape3">Step 3 – Memory</a></li>
+    <li><a href="#etape4">Step 4 – LangGraph</a></li>
+    <li><a href="#etape5">Step 5+ – Production</a></li>
+  </ul>
+  <ul class="fr" style="display:none;">
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#etape1">Étape 1 – ReAct basique</a></li>
+    <li><a href="#etape2">Étape 2 – Multi-outils</a></li>
+    <li><a href="#etape3">Étape 3 – Mémoire</a></li>
+    <li><a href="#etape4">Étape 4 – LangGraph</a></li>
+    <li><a href="#etape5">Étape 5+ – Production</a></li>
+  </ul>
+  <ul class="pt" style="display:none;">
+    <li><a href="#intro">Introdução</a></li>
+    <li><a href="#etape1">Etapa 1 – ReAct básico</a></li>
+    <li><a href="#etape2">Etapa 2 – Multi-ferramentas</a></li>
+    <li><a href="#etape3">Etapa 3 – Memória</a></li>
+    <li><a href="#etape4">Etapa 4 – LangGraph</a></li>
+    <li><a href="#etape5">Etapa 5+ – Produção</a></li>
+  </ul>
+  <ul class="ar" style="display:none;">
+    <li><a href="#intro">المقدمة</a></li>
+    <li><a href="#etape1">الخطوة 1 – ReAct الأساسي</a></li>
+    <li><a href="#etape2">الخطوة 2 – أدوات متعددة</a></li>
+    <li><a href="#etape3">الخطوة 3 – الذاكرة</a></li>
+    <li><a href="#etape4">الخطوة 4 – LangGraph</a></li>
+    <li><a href="#etape5">الخطوة 5+ – الإنتاج</a></li>
+  </ul>
+</nav>
 
 <main>
 
-  <!-- ================================================== -->
-  <!-- ENGLISH CONTENT (default) -->
-  <!-- ================================================== -->
-  <div id="content-en" class="lang-content" style="display:block;">
+  <!-- ================== ENGLISH ================== -->
+  <div class="lang-content en">
     <section id="intro">
-      <h2>Introduction – Why AI Agents are exploding in 2025/2026</h2>
+      <h2>Introduction – Why are AI agents exploding in 2025/2026?</h2>
       <p class="level">Level ★☆☆☆☆</p>
-      <p>A modern AI agent is much more than a chatbot. It is an autonomous system that:</p>
+      <p>A modern AI agent is no longer just a chatbot. It is an autonomous system that:</p>
       <ul>
         <li>reasons step by step</li>
         <li>uses tools (API, calculator, web search, code execution…)</li>
         <li>maintains long-term memory</li>
         <li>collaborates with other agents</li>
+        <li>makes complex multi-step decisions</li>
       </ul>
-      <p>Popular frameworks right now:</p>
+      <p>Most used frameworks today:</p>
       <ul>
-        <li><strong>LangGraph</strong> (recommended for production)</li>
-        <li><strong>CrewAI</strong> (easiest for role-based multi-agents)</li>
-        <li><strong>AutoGen</strong> (Microsoft – agent conversations)</li>
+        <li><strong>LangGraph</strong> (recommended by LangChain for production)</li>
+        <li><strong>CrewAI</strong> (very simple for role-based multi-agents)</li>
+        <li><strong>AutoGen</strong> (Microsoft – conversations between agents)</li>
+        <li><strong>OpenAI Swarm / Agents</strong> (lightweight and managed)</li>
+      </ul>
+      <p>Key resources to get started:</p>
+      <ul>
+        <li>→ <a href="https://www.langchain.com/langgraph" target="_blank">Official LangGraph website</a></li>
+        <li>→ <a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Free Intro to LangGraph course (LangChain Academy)</a></li>
+        <li>→ <a href="https://www.crewai.com/" target="_blank">Official CrewAI website</a></li>
       </ul>
     </section>
 
     <section id="etape1">
-      <h2>Step 1 – Basic ReAct Agent</h2>
+      <h2>Step 1 – First ultra-basic ReAct agent</h2>
       <p class="level">Level ★★☆☆☆</p>
+      <p>The ReAct pattern = <strong>Reason</strong> (think) + <strong>Act</strong> (act) + observe the result → loop until final answer.</p>
       <pre><code>from openai import OpenAI
 client = OpenAI()
 
 def get_weather(city: str) -> str:
-    return f"{city}: 24°C, sunny (simulated)"
+    <span class="highlight">return f"{city}: 24°C, sunny (simulation 2026)"</span>
 
-# ... tool definition + first LLM call ...
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "get_weather",
+        "description": "Get the weather for a city",
+        "parameters": {
+            "type": "object",
+            "properties": {"city": {"type": "string"}},
+            "required": ["city"]
+        }
+    }
+}]
+
+question = "What's the weather in Osasco today?"
+messages = [{"role": "user", "content": question}]
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=messages,
+    tools=tools
+)
+# ← Real ReAct loop starts here (see step 2)
+print(response.choices[0].message.tool_calls)
+</code></pre>
+      <p>To go further:</p>
+      <ul>
+        <li><a href="https://www.aurelio.ai/learn/langchain-agents-intro" target="_blank">LangChain Agents Tutorial 2025 (James Briggs)</a></li>
+        <li><a href="https://www.ibm.com/think/tutorials/using-langchain-tools-to-build-an-ai-agent" target="_blank">IBM watsonx + LangChain tutorial</a></li>
+      </ul>
+    </section>
+
+    <section id="etape2">
+      <h2>Step 2 – Complete loop + multiple tools</h2>
+      <p class="level">Level ★★☆☆☆ → ★★★☆☆</p>
+      <p>Add a while loop, multiple tools, and error handling.</p>
+      <pre><code># Simplified ReAct loop excerpt
+while True:
+    resp = client.chat.completions.create(...)
+    if resp.choices[0].message.tool_calls:
+        for call in resp.choices[0].message.tool_calls:
+            if call.function.name == "get_weather":
+                args = json.loads(call.function.arguments)
+                result = get_weather(**args)
+                messages.append({"role": "tool", "content": result, "tool_call_id": call.id})
+    else:
+        final = resp.choices[0].message.content
+        break
+</code></pre>
+      <p>Resources:</p>
+      <ul>
+        <li><a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank">Why switch to LangGraph (official docs)</a></li>
+        <li><a href="https://www.datacamp.com/tutorial/crewai-vs-langgraph-vs-autogen" target="_blank">CrewAI vs LangGraph vs AutoGen comparison</a></li>
+      </ul>
+    </section>
+
+    <section id="etape3">
+      <h2>Step 3 – Adding persistent memory</h2>
+      <p class="level">Level ★★★☆☆</p>
+      <p>Simple → advanced options:</p>
+      <ul>
+        <li>Python list (history in messages)</li>
+        <li>ConversationBufferMemory (LangChain)</li>
+        <li>Vector store + RAG for very long memory</li>
+      </ul>
+      <p>Quick LangChain example:</p>
+      <pre><code>from langchain.memory import ConversationBufferMemory
+memory = ConversationBufferMemory(return_messages=True)
+# Then inject it into the agent
 </code></pre>
     </section>
 
-    <!-- Ajoute les autres sections en anglais de la même façon -->
+    <section id="etape4">
+      <h2>Step 4 – Modern control with LangGraph</h2>
+      <p class="level">Level ★★★★☆</p>
+      <p>LangGraph replaces the while loop with a <strong>state graph</strong> → branches, cycles, human-in-the-loop, persistence, easy debugging.</p>
+      <p>Minimal example:</p>
+      <pre><code>from langgraph.graph import StateGraph, START, END
+
+graph = StateGraph(...)
+graph.add_node("agent", call_llm)
+graph.add_node("tools", execute_tools)
+graph.add_conditional_edges("agent", should_continue)
+graph.add_edge("tools", "agent")
+graph.add_edge(START, "agent")
+app = graph.compile()
+</code></pre>
+      <p>Best resources 2025/2026:</p>
+      <ul>
+        <li><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Official free Intro to LangGraph course</a></li>
+        <li><a href="https://www.langchain.com/langgraph" target="_blank">LangGraph main site</a></li>
+        <li><a href="https://www.agentframeworkhub.com/blog/langgraph-tutorial-beginners-guide-2026" target="_blank">Complete beginner LangGraph guide 2026</a></li>
+      </ul>
+    </section>
+
+    <section id="etape5">
+      <h2>Step 5+ – Towards production & multi-agents</h2>
+      <p class="level">Level ★★★★★</p>
+      <p>Advanced topics:</p>
+      <ul>
+        <li>Multi-agents (team: researcher + writer + critic)</li>
+        <li>Secure code execution (E2B, Docker sandbox)</li>
+        <li>Observability (LangSmith, Phoenix)</li>
+        <li>Deployment (FastAPI + Celery / RabbitMQ, Vercel, Fly.io)</li>
+        <li>Local LLMs (Llama 3.3, Qwen 2.5, DeepSeek-R1)</li>
+      </ul>
+      <p>Production resources 2025/2026:</p>
+      <ul>
+        <li><a href="https://www.getmaxim.ai/articles/top-5-ai-agent-frameworks-in-2025-a-practical-guide-for-ai-builders" target="_blank">Top 5 agent frameworks 2025</a></li>
+        <li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks-2025" target="_blank">Best open-source frameworks 2025</a></li>
+        <li><a href="https://www.langflow.org/blog/the-complete-guide-to-choosing-an-ai-agent-framework-in-2025" target="_blank">Complete framework choice guide 2025</a></li>
+      </ul>
+      <p>Realistic goal by end of 2026: 24/7 autonomous agent with minimal supervision.</p>
+    </section>
   </div>
 
-  <!-- ================================================== -->
-  <!-- FRANÇAIS -->
-  <!-- ================================================== -->
-  <div id="content-fr" class="lang-content">
+  <!-- ================== FRANÇAIS ================== -->
+  <div class="lang-content fr">
     <section id="intro">
-      <h2>Introduction – Pourquoi les agents IA explosent en 2025/2026</h2>
+      <h2>Introduction – Pourquoi les agents IA explosent en 2025/2026 ?</h2>
       <p class="level">Niveau ★☆☆☆☆</p>
-      <p>Un agent IA moderne n’est plus un simple chatbot. C’est un système autonome qui :</p>
+      <p>Un agent IA moderne n’est plus juste un chatbot. C’est un système autonome qui :</p>
       <ul>
         <li>raisonne étape par étape</li>
-        <li>utilise des outils (API, calculatrice, recherche web, exécution code…)</li>
-        <li>conserve une mémoire longue</li>
+        <li>utilise des outils (API, calculatrice, web, code…)</li>
+        <li>garde une mémoire longue</li>
         <li>collabore avec d’autres agents</li>
+        <li>prend des décisions complexes sur plusieurs étapes</li>
       </ul>
-      <p>Frameworks populaires en 2025/2026 :</p>
+      <p>Les frameworks les plus utilisés aujourd’hui :</p>
       <ul>
-        <li><strong>LangGraph</strong> (recommandé pour la production)</li>
-        <li><strong>CrewAI</strong> (le plus simple pour multi-agents par rôles)</li>
+        <li><strong>LangGraph</strong> (recommandé par LangChain pour la prod)</li>
+        <li><strong>CrewAI</strong> (très simple pour multi-agents rôle-based)</li>
         <li><strong>AutoGen</strong> (Microsoft – conversations entre agents)</li>
+        <li><strong>OpenAI Swarm / Agents</strong> (léger et géré)</li>
+      </ul>
+      <p>Ressources clés pour démarrer :</p>
+      <ul>
+        <li>→ <a href="https://www.langchain.com/langgraph" target="_blank">Site officiel LangGraph</a></li>
+        <li>→ <a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Cours gratuit Intro to LangGraph (LangChain Academy)</a></li>
+        <li>→ <a href="https://www.crewai.com/" target="_blank">CrewAI officiel</a></li>
       </ul>
     </section>
 
     <section id="etape1">
-      <h2>Étape 1 – Agent ReAct basique</h2>
+      <h2>Étape 1 – Premier agent ReAct ultra-basique</h2>
       <p class="level">Niveau ★★☆☆☆</p>
+      <p>Le pattern ReAct = <strong>Reason</strong> (pense) + <strong>Act</strong> (agis) + observe le résultat → boucle jusqu’à la réponse finale.</p>
       <pre><code>from openai import OpenAI
 client = OpenAI()
 
 def obtenir_meteo(ville: str) -> str:
-    return f"{ville} : 24°C, ensoleillé (simulation)"
+    <span class="highlight">return f"{ville} : 24°C, ensoleillé (simulation 2026)"</span>
 
-# ... définition outil + premier appel LLM ...
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "obtenir_meteo",
+        "description": "Récupère la météo d'une ville",
+        "parameters": {
+            "type": "object",
+            "properties": {"ville": {"type": "string"}},
+            "required": ["ville"]
+        }
+    }
+}]
+
+question = "Quel temps fait-il à Osasco aujourd'hui ?"
+messages = [{"role": "user", "content": question}]
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=messages,
+    tools=tools
+)
+# ← Ici commence la vraie boucle ReAct (voir étape 2)
+print(response.choices[0].message.tool_calls)
+</code></pre>
+      <p>Pour aller plus loin :</p>
+      <ul>
+        <li><a href="https://www.aurelio.ai/learn/langchain-agents-intro" target="_blank">Tutoriel Agents LangChain 2025 (James Briggs)</a></li>
+        <li><a href="https://www.ibm.com/fr-fr/think/tutorials/using-langchain-tools-to-build-an-ai-agent" target="_blank">Tutoriel en français – IBM watsonx + LangChain</a></li>
+      </ul>
+    </section>
+
+    <section id="etape2">
+      <h2>Étape 2 – Boucle complète + plusieurs outils</h2>
+      <p class="level">Niveau ★★☆☆☆ → ★★★☆☆</p>
+      <p>Ajoute une boucle while, plusieurs outils, gestion d’erreurs.</p>
+      <pre><code># Extrait simplifié de boucle ReAct
+while True:
+    resp = client.chat.completions.create(...)
+    if resp.choices[0].message.tool_calls:
+        for call in resp.choices[0].message.tool_calls:
+            if call.function.name == "obtenir_meteo":
+                args = json.loads(call.function.arguments)
+                result = obtenir_meteo(**args)
+                messages.append({"role": "tool", "content": result, "tool_call_id": call.id})
+    else:
+        final = resp.choices[0].message.content
+        break
+</code></pre>
+      <p>Ressources :</p>
+      <ul>
+        <li><a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank">Pourquoi passer à LangGraph (docs officielles)</a></li>
+        <li><a href="https://www.datacamp.com/fr/tutorial/crewai-vs-langgraph-vs-autogen" target="_blank">Comparatif CrewAI vs LangGraph vs AutoGen (en français)</a></li>
+      </ul>
+    </section>
+
+    <section id="etape3">
+      <h2>Étape 3 – Ajouter de la mémoire persistante</h2>
+      <p class="level">Niveau ★★★☆☆</p>
+      <p>Options simples → avancées :</p>
+      <ul>
+        <li>Liste Python (history dans messages)</li>
+        <li>ConversationBufferMemory (LangChain)</li>
+        <li>Vector store + RAG pour mémoire très longue</li>
+      </ul>
+      <p>Exemple rapide LangChain :</p>
+      <pre><code>from langchain.memory import ConversationBufferMemory
+memory = ConversationBufferMemory(return_messages=True)
+# Puis l'injecter dans l'agent
 </code></pre>
     </section>
 
-    <!-- Ajoute les autres sections en français -->
+    <section id="etape4">
+      <h2>Étape 4 – Contrôle moderne avec LangGraph</h2>
+      <p class="level">Niveau ★★★★☆</p>
+      <p>LangGraph remplace la boucle while par un <strong>graphe d’état</strong> → branches, cycles, human-in-the-loop, persistance, debug facile.</p>
+      <p>Exemple minimal :</p>
+      <pre><code>from langgraph.graph import StateGraph, START, END
+graph = StateGraph(...)
+graph.add_node("agent", call_llm)
+graph.add_node("tools", execute_tools)
+graph.add_conditional_edges("agent", should_continue)
+graph.add_edge("tools", "agent")
+graph.add_edge(START, "agent")
+app = graph.compile()
+</code></pre>
+      <p>Meilleures ressources 2025/2026 :</p>
+      <ul>
+        <li><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Cours officiel gratuit Intro LangGraph</a></li>
+        <li><a href="https://www.langchain.com/langgraph" target="_blank">LangGraph – Site principal</a></li>
+        <li><a href="https://www.agentframeworkhub.com/blog/langgraph-tutorial-beginners-guide-2026" target="_blank">Guide débutant complet LangGraph 2026</a></li>
+      </ul>
+    </section>
+
+    <section id="etape5">
+      <h2>Étape 5+ – Vers la production & multi-agents</h2>
+      <p class="level">Niveau ★★★★★</p>
+      <p>Thèmes avancés :</p>
+      <ul>
+        <li>Multi-agents (équipe : chercheur + rédacteur + critique)</li>
+        <li>Exécution code sécurisée (E2B, sandbox Docker)</li>
+        <li>Observabilité (LangSmith, Phoenix)</li>
+        <li>Déploiement (FastAPI + Celery / RabbitMQ, Vercel, Fly.io)</li>
+        <li>LLM locaux (Llama 3.3, Qwen 2.5, DeepSeek-R1)</li>
+      </ul>
+      <p>Ressources production 2025/2026 :</p>
+      <ul>
+        <li><a href="https://www.getmaxim.ai/articles/top-5-ai-agent-frameworks-in-2025-a-practical-guide-for-ai-builders" target="_blank">Top 5 frameworks agents 2025 (guide pratique)</a></li>
+        <li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks-2025" target="_blank">Meilleurs frameworks open-source 2025</a></li>
+        <li><a href="https://www.langflow.org/blog/the-complete-guide-to-choosing-an-ai-agent-framework-in-2025" target="_blank">Guide complet choix framework 2025</a></li>
+      </ul>
+      <p>Objectif réaliste fin 2026 : agent autonome 24/7 avec supervision minimale.</p>
+    </section>
   </div>
 
-  <!-- ================================================== -->
-  <!-- PORTUGUÊS (BR) -->
-  <!-- ================================================== -->
-  <div id="content-pt" class="lang-content">
+  <!-- ================== PORTUGUÊS (BR) ================== -->
+  <div class="lang-content pt">
     <section id="intro">
-      <h2>Introdução – Por que os Agentes IA estão explodindo em 2025/2026</h2>
+      <h2>Introdução – Por que os agentes de IA estão explodindo em 2025/2026?</h2>
       <p class="level">Nível ★☆☆☆☆</p>
-      <p>Um agente IA moderno vai muito além de um chatbot. É um sistema autônomo que:</p>
+      <p>Um agente de IA moderno não é mais apenas um chatbot. É um sistema autônomo que:</p>
       <ul>
         <li>raciocina passo a passo</li>
-        <li>usa ferramentas (API, calculadora, busca web, execução de código…)</li>
+        <li>usa ferramentas (API, calculadora, busca na web, execução de código…)</li>
         <li>mantém memória de longo prazo</li>
         <li>colabora com outros agentes</li>
+        <li>toma decisões complexas em várias etapas</li>
       </ul>
-      <p>Frameworks populares agora:</p>
+      <p>Frameworks mais utilizados atualmente:</p>
       <ul>
-        <li><strong>LangGraph</strong> (recomendado para produção)</li>
-        <li><strong>CrewAI</strong> (mais fácil para multi-agentes baseados em papéis)</li>
+        <li><strong>LangGraph</strong> (recomendado pela LangChain para produção)</li>
+        <li><strong>CrewAI</strong> (muito simples para multi-agentes baseados em papéis)</li>
         <li><strong>AutoGen</strong> (Microsoft – conversas entre agentes)</li>
+        <li><strong>OpenAI Swarm / Agents</strong> (leve e gerenciado)</li>
+      </ul>
+      <p>Recursos principais para começar:</p>
+      <ul>
+        <li>→ <a href="https://www.langchain.com/langgraph" target="_blank">Site oficial do LangGraph</a></li>
+        <li>→ <a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Curso gratuito Introdução ao LangGraph (LangChain Academy)</a></li>
+        <li>→ <a href="https://www.crewai.com/" target="_blank">Site oficial do CrewAI</a></li>
       </ul>
     </section>
 
-    <!-- sections en portugais -->
+    <section id="etape1">
+      <h2>Etapa 1 – Primeiro agente ReAct ultra básico</h2>
+      <p class="level">Nível ★★☆☆☆</p>
+      <p>O padrão ReAct = <strong>Reason</strong> (pensar) + <strong>Act</strong> (agir) + observar o resultado → loop até a resposta final.</p>
+      <pre><code>from openai import OpenAI
+client = OpenAI()
+
+def obter_clima(cidade: str) -> str:
+    <span class="highlight">return f"{cidade}: 24°C, ensolarado (simulação 2026)"</span>
+
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "obter_clima",
+        "description": "Obtém o clima de uma cidade",
+        "parameters": {
+            "type": "object",
+            "properties": {"cidade": {"type": "string"}},
+            "required": ["cidade"]
+        }
+    }
+}]
+
+pergunta = "Qual o clima em Osasco hoje?"
+messages = [{"role": "user", "content": pergunta}]
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=messages,
+    tools=tools
+)
+# ← Aqui começa o loop ReAct real (veja etapa 2)
+print(response.choices[0].message.tool_calls)
+</code></pre>
+      <p>Para ir mais longe:</p>
+      <ul>
+        <li><a href="https://www.aurelio.ai/learn/langchain-agents-intro" target="_blank">Tutorial Agentes LangChain 2025 (James Briggs)</a></li>
+        <li><a href="https://www.ibm.com/think/tutorials/using-langchain-tools-to-build-an-ai-agent" target="_blank">Tutorial IBM watsonx + LangChain</a></li>
+      </ul>
+    </section>
+
+    <section id="etape2">
+      <h2>Etapa 2 – Loop completo + várias ferramentas</h2>
+      <p class="level">Nível ★★☆☆☆ → ★★★☆☆</p>
+      <p>Adicione um loop while, várias ferramentas e tratamento de erros.</p>
+      <pre><code># Exemplo simplificado do loop ReAct
+while True:
+    resp = client.chat.completions.create(...)
+    if resp.choices[0].message.tool_calls:
+        for call in resp.choices[0].message.tool_calls:
+            if call.function.name == "obter_clima":
+                args = json.loads(call.function.arguments)
+                result = obter_clima(**args)
+                messages.append({"role": "tool", "content": result, "tool_call_id": call.id})
+    else:
+        final = resp.choices[0].message.content
+        break
+</code></pre>
+      <p>Recursos:</p>
+      <ul>
+        <li><a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank">Por que migrar para LangGraph (docs oficiais)</a></li>
+        <li><a href="https://www.datacamp.com/tutorial/crewai-vs-langgraph-vs-autogen" target="_blank">Comparação CrewAI vs LangGraph vs AutoGen</a></li>
+      </ul>
+    </section>
+
+    <section id="etape3">
+      <h2>Etapa 3 – Adicionando memória persistente</h2>
+      <p class="level">Nível ★★★☆☆</p>
+      <p>Opções simples → avançadas:</p>
+      <ul>
+        <li>Lista Python (histórico nas mensagens)</li>
+        <li>ConversationBufferMemory (LangChain)</li>
+        <li>Vector store + RAG para memória muito longa</li>
+      </ul>
+      <p>Exemplo rápido LangChain:</p>
+      <pre><code>from langchain.memory import ConversationBufferMemory
+memory = ConversationBufferMemory(return_messages=True)
+# Depois injete no agente
+</code></pre>
+    </section>
+
+    <section id="etape4">
+      <h2>Etapa 4 – Controle moderno com LangGraph</h2>
+      <p class="level">Nível ★★★★☆</p>
+      <p>LangGraph substitui o loop while por um <strong>grafo de estado</strong> → ramificações, ciclos, human-in-the-loop, persistência e debug fácil.</p>
+      <p>Exemplo mínimo:</p>
+      <pre><code>from langgraph.graph import StateGraph, START, END
+graph = StateGraph(...)
+graph.add_node("agent", call_llm)
+graph.add_node("tools", execute_tools)
+graph.add_conditional_edges("agent", should_continue)
+graph.add_edge("tools", "agent")
+graph.add_edge(START, "agent")
+app = graph.compile()
+</code></pre>
+      <p>Melhores recursos 2025/2026:</p>
+      <ul>
+        <li><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Curso oficial gratuito Intro LangGraph</a></li>
+        <li><a href="https://www.langchain.com/langgraph" target="_blank">Site principal LangGraph</a></li>
+        <li><a href="https://www.agentframeworkhub.com/blog/langgraph-tutorial-beginners-guide-2026" target="_blank">Guia completo para iniciantes LangGraph 2026</a></li>
+      </ul>
+    </section>
+
+    <section id="etape5">
+      <h2>Etapa 5+ – Rumo à produção e multi-agentes</h2>
+      <p class="level">Nível ★★★★★</p>
+      <p>Tópicos avançados:</p>
+      <ul>
+        <li>Multi-agentes (equipe: pesquisador + redator + crítico)</li>
+        <li>Execução de código segura (E2B, sandbox Docker)</li>
+        <li>Observabilidade (LangSmith, Phoenix)</li>
+        <li>Deploy (FastAPI + Celery / RabbitMQ, Vercel, Fly.io)</li>
+        <li>LLMs locais (Llama 3.3, Qwen 2.5, DeepSeek-R1)</li>
+      </ul>
+      <p>Recursos de produção 2025/2026:</p>
+      <ul>
+        <li><a href="https://www.getmaxim.ai/articles/top-5-ai-agent-frameworks-in-2025-a-practical-guide-for-ai-builders" target="_blank">Top 5 frameworks de agentes 2025</a></li>
+        <li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks-2025" target="_blank">Melhores frameworks open-source 2025</a></li>
+        <li><a href="https://www.langflow.org/blog/the-complete-guide-to-choosing-an-ai-agent-framework-in-2025" target="_blank">Guia completo de escolha de framework 2025</a></li>
+      </ul>
+      <p>Objetivo realista até o final de 2026: agente autônomo 24/7 com supervisão mínima.</p>
+    </section>
   </div>
 
-  <!-- ================================================== -->
-  <!-- العربية -->
-  <!-- ================================================== -->
-  <div id="content-ar" class="lang-content">
+  <!-- ================== ARABE ================== -->
+  <div class="lang-content ar">
     <section id="intro">
-      <h2>المقدمة – لماذا ينفجر استخدام وكلاء الذكاء الاصطناعي في 2025/2026</h2>
+      <h2>المقدمة – لماذا ينفجر استخدام وكلاء الذكاء الاصطناعي في 2025/2026؟</h2>
       <p class="level">المستوى ★☆☆☆☆</p>
-      <p>وكيل الذكاء الاصطناعي الحديث ليس مجرد chatbot. إنه نظام مستقل يقوم بـ:</p>
+      <p>وكيل الذكاء الاصطناعي الحديث لم يعد مجرد روبوت دردشة. إنه نظام مستقل يقوم بـ:</p>
       <ul>
         <li>التفكير خطوة بخطوة</li>
-        <li>استخدام الأدوات (API، حاسبة، بحث ويب، تنفيذ كود…)</li>
+        <li>استخدام الأدوات (API، آلة حاسبة، بحث ويب، تنفيذ كود…)</li>
         <li>الحفاظ على ذاكرة طويلة الأمد</li>
         <li>التعاون مع وكلاء آخرين</li>
+        <li>اتخاذ قرارات معقدة متعددة الخطوات</li>
       </ul>
-      <p>الأطر الشائعة حالياً:</p>
+      <p>أكثر الأطر استخداماً اليوم:</p>
       <ul>
-        <li><strong>LangGraph</strong> (موصى به للإنتاج)</li>
-        <li><strong>CrewAI</strong> (الأسهل للوكلاء المتعددين حسب الأدوار)</li>
+        <li><strong>LangGraph</strong> (موصى به من LangChain للإنتاج)</li>
+        <li><strong>CrewAI</strong> (بسيط جداً للوكلاء المتعددين حسب الأدوار)</li>
         <li><strong>AutoGen</strong> (مايكروسوفت – محادثات بين الوكلاء)</li>
+        <li><strong>OpenAI Swarm / Agents</strong> (خفيف ومُدار)</li>
+      </ul>
+      <p>الموارد الأساسية للبدء:</p>
+      <ul>
+        <li>→ <a href="https://www.langchain.com/langgraph" target="_blank">الموقع الرسمي لـ LangGraph</a></li>
+        <li>→ <a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">دورة مجانية مقدمة في LangGraph (أكاديمية LangChain)</a></li>
+        <li>→ <a href="https://www.crewai.com/" target="_blank">الموقع الرسمي لـ CrewAI</a></li>
       </ul>
     </section>
 
-    <!-- sections en arabe -->
+    <section id="etape1">
+      <h2>الخطوة 1 – أول وكيل ReAct أساسي جداً</h2>
+      <p class="level">المستوى ★★☆☆☆</p>
+      <p>نمط ReAct = <strong>Reason</strong> (التفكير) + <strong>Act</strong> (الفعل) + مراقبة النتيجة → حلقة حتى الإجابة النهائية.</p>
+      <pre><code>from openai import OpenAI
+client = OpenAI()
+
+def الحصول_على_الطقس(المدينة: str) -> str:
+    <span class="highlight">return f"{المدينة}: 24°م، مشمس (محاكاة 2026)"</span>
+
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "الحصول_على_الطقس",
+        "description": "الحصول على الطقس لمدينة معينة",
+        "parameters": {
+            "type": "object",
+            "properties": {"المدينة": {"type": "string"}},
+            "required": ["المدينة"]
+        }
+    }
+}]
+
+السؤال = "ما هو الطقس في أوساسكو اليوم؟"
+messages = [{"role": "user", "content": السؤال}]
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=messages,
+    tools=tools
+)
+# ← هنا يبدأ حلقة ReAct الحقيقية (انظر الخطوة 2)
+print(response.choices[0].message.tool_calls)
+</code></pre>
+      <p>للمزيد:</p>
+      <ul>
+        <li><a href="https://www.aurelio.ai/learn/langchain-agents-intro" target="_blank">دورة تعليمية وكلاء LangChain 2025 (جيمس بريغز)</a></li>
+        <li><a href="https://www.ibm.com/think/tutorials/using-langchain-tools-to-build-an-ai-agent" target="_blank">دورة تعليمية IBM watsonx + LangChain</a></li>
+      </ul>
+    </section>
+
+    <section id="etape2">
+      <h2>الخطوة 2 – الحلقة الكاملة + أدوات متعددة</h2>
+      <p class="level">المستوى ★★☆☆☆ → ★★★☆☆</p>
+      <p>أضف حلقة while، أدوات متعددة، ومعالجة الأخطاء.</p>
+      <pre><code># مثال مبسط لحلقة ReAct
+while True:
+    resp = client.chat.completions.create(...)
+    if resp.choices[0].message.tool_calls:
+        for call in resp.choices[0].message.tool_calls:
+            if call.function.name == "الحصول_على_الطقس":
+                args = json.loads(call.function.arguments)
+                result = الحصول_على_الطقس(**args)
+                messages.append({"role": "tool", "content": result, "tool_call_id": call.id})
+    else:
+        final = resp.choices[0].message.content
+        break
+</code></pre>
+      <p>الموارد:</p>
+      <ul>
+        <li><a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank">لماذا الانتقال إلى LangGraph (الوثائق الرسمية)</a></li>
+        <li><a href="https://www.datacamp.com/tutorial/crewai-vs-langgraph-vs-autogen" target="_blank">مقارنة CrewAI vs LangGraph vs AutoGen</a></li>
+      </ul>
+    </section>
+
+    <section id="etape3">
+      <h2>الخطوة 3 – إضافة الذاكرة المستمرة</h2>
+      <p class="level">المستوى ★★★☆☆</p>
+      <p>خيارات بسيطة → متقدمة:</p>
+      <ul>
+        <li>قائمة Python (السجل في الرسائل)</li>
+        <li>ConversationBufferMemory (LangChain)</li>
+        <li>Vector store + RAG للذاكرة الطويلة جداً</li>
+      </ul>
+      <p>مثال سريع LangChain:</p>
+      <pre><code>from langchain.memory import ConversationBufferMemory
+memory = ConversationBufferMemory(return_messages=True)
+# ثم قم بحقنه في الوكيل
+</code></pre>
+    </section>
+
+    <section id="etape4">
+      <h2>الخطوة 4 – التحكم الحديث مع LangGraph</h2>
+      <p class="level">المستوى ★★★★☆</p>
+      <p>LangGraph يستبدل حلقة while بـ <strong>رسم بياني للحالة</strong> → فروع، دورات، تدخل بشري، استمرارية، وتصحيح سهل.</p>
+      <p>مثال بسيط:</p>
+      <pre><code>from langgraph.graph import StateGraph, START, END
+graph = StateGraph(...)
+graph.add_node("agent", call_llm)
+graph.add_node("tools", execute_tools)
+graph.add_conditional_edges("agent", should_continue)
+graph.add_edge("tools", "agent")
+graph.add_edge(START, "agent")
+app = graph.compile()
+</code></pre>
+      <p>أفضل الموارد 2025/2026:</p>
+      <ul>
+        <li><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">دورة رسمية مجانية مقدمة في LangGraph</a></li>
+        <li><a href="https://www.langchain.com/langgraph" target="_blank">الموقع الرئيسي لـ LangGraph</a></li>
+        <li><a href="https://www.agentframeworkhub.com/blog/langgraph-tutorial-beginners-guide-2026" target="_blank">دليل كامل للمبتدئين LangGraph 2026</a></li>
+      </ul>
+    </section>
+
+    <section id="etape5">
+      <h2>الخطوة 5+ – نحو الإنتاج والوكلاء المتعددين</h2>
+      <p class="level">المستوى ★★★★★</p>
+      <p>مواضيع متقدمة:</p>
+      <ul>
+        <li>وكلاء متعددون (فريق: باحث + كاتب + ناقد)</li>
+        <li>تنفيذ كود آمن (E2B، sandbox Docker)</li>
+        <li>المراقبة (LangSmith، Phoenix)</li>
+        <li>النشر (FastAPI + Celery / RabbitMQ، Vercel، Fly.io)</li>
+        <li>نماذج LLM محلية (Llama 3.3، Qwen 2.5، DeepSeek-R1)</li>
+      </ul>
+      <p>موارد الإنتاج 2025/2026:</p>
+      <ul>
+        <li><a href="https://www.getmaxim.ai/articles/top-5-ai-agent-frameworks-in-2025-a-practical-guide-for-ai-builders" target="_blank">أفضل 5 أطر للوكلاء 2025</a></li>
+        <li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks-2025" target="_blank">أفضل الأطر مفتوحة المصدر 2025</a></li>
+        <li><a href="https://www.langflow.org/blog/the-complete-guide-to-choosing-an-ai-agent-framework-in-2025" target="_blank">دليل كامل لاختيار الإطار 2025</a></li>
+      </ul>
+      <p>الهدف الواقعي بنهاية 2026: وكيل مستقل 24/7 بإشراف أدنى.</p>
+    </section>
   </div>
 
 </main>
 
 <footer>
-  <p>Guide created by AMIN MALKI KARZAZI -2026-<br>
-  Multilingue : EN / FR / PT-BR / AR • Thème orange chaleureux</p>
+  <p class="en">Guide created for AMIN – Osasco, BR • 2025–2026<br>Warm orange/amber theme • Share & modify freely 🚀</p>
+  <p class="fr" style="display:none;">Guide créé pour AMIN – Osasco, BR • 2025–2026<br>Thème chaleureux orange/ambre • Partage & modifie librement 🚀</p>
+  <p class="pt" style="display:none;">Guia criado para AMIN – Osasco, BR • 2025–2026<br>Tema laranja/âmbar acolhedor • Compartilhe & modifique livremente 🚀</p>
+  <p class="ar" style="display:none;">دليل تم إنشاؤه لـ AMIN – أوساسكو، البرازيل • 2025–2026<br>ثيم برتقالي/كهرماني دافئ • شارك وعدّل بحرية 🚀</p>
 </footer>
 
 </body>
