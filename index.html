@@ -3,148 +3,181 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Agent Academy • Build Agents from A to Z</title>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <title>AI Agents from A to Z – Practical Guide 2025/2026</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <div class="logo">
-        <span class="logo-font text-orange">Agent</span><span class="logo-font text-amber">Academy</span>
-      </div>
+<header>
+  <h1>Building AI Agents</h1>
+  <p class="subtitle">Ultra-complete and up-to-date guide – From zero to production in 2025/2026</p>
+  <p style="font-size:1.1rem; max-width:700px; margin:1rem auto; color:#fcd34d;">
+    Learn ReAct, LangGraph, CrewAI, AutoGen… with the best current resources
+  </p>
+</header>
 
-      <div class="nav-links">
-        <a href="#overview">Overview</a>
-        <a href="#curriculum">Curriculum</a>
-        <a href="#simulator">Simulator</a>
-        <a href="#quiz">Quiz</a>
-        <a href="#resources">Resources</a>
-      </div>
+<nav>
+  <ul>
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#etape1">Step 1 – Basic ReAct</a></li>
+    <li><a href="#etape2">Step 2 – Multiple Tools</a></li>
+    <li><a href="#etape3">Step 3 – Memory</a></li>
+    <li><a href="#etape4">Step 4 – LangGraph</a></li>
+    <li><a href="#etape5">Step 5+ – Production</a></li>
+  </ul>
+</nav>
 
-      <button class="btn-primary" onclick="scrollToSection('simulator')">
-        START BUILDING
-      </button>
-
-      <button id="mobile-menu-btn" class="mobile-menu-btn">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-
-    <div id="mobile-menu" class="mobile-menu hidden">
-      <a href="#overview">Overview</a>
-      <a href="#curriculum">Curriculum</a>
-      <a href="#simulator">Simulator</a>
-      <a href="#quiz">Quiz</a>
-      <a href="#resources">Resources</a>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <header class="hero hero-bg">
-    <div class="container hero-content">
-      <h1>Build AI Agents<br><span>from A to Z</span></h1>
-      <p>The most welcoming, step-by-step educational experience to create autonomous AI agents.</p>
-      
-      <div class="hero-buttons">
-        <button class="btn-primary large" onclick="scrollToSection('curriculum')">
-          START THE COURSE
-        </button>
-        <button class="btn-outline large" onclick="scrollToSection('simulator')">
-          TRY THE SIMULATOR →
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <!-- Overview -->
-  <section id="overview" class="section">
-    <div class="container">
-      <h2>What You Will Learn</h2>
-      <!-- ... le reste du contenu overview ... -->
-      <div class="grid-2">
-        <!-- texte à gauche -->
-        <div>
-          <ul class="feature-list">
-            <li><strong>Understand AI Agents</strong><br>Autonomous systems that plan, use tools...</li>
-            <li><strong>Master frameworks</strong><br>LangChain • CrewAI • AutoGen...</li>
-            <!-- etc -->
-          </ul>
-        </div>
-        <!-- carte à droite -->
-        <div class="card demo-card">
-          <div class="demo-visual">🛠️</div>
-          <h3>Real code — ready to copy & run</h3>
-        </div>
-      </div>
-    </div>
+<main>
+  <section id="intro">
+    <h2>Introduction – Why AI agents are exploding in 2025/2026?</h2>
+    <p class="level">Level ★☆☆☆☆</p>
+    <p>A modern AI agent is no longer just a chatbot. It is an autonomous system that:</p>
+    <ul>
+      <li>reasons step by step</li>
+      <li>uses tools (API, calculator, web, code…)</li>
+      <li>keeps long-term memory</li>
+      <li>collaborates with other agents</li>
+      <li>makes complex decisions over multiple steps</li>
+    </ul>
+    <p>Most popular frameworks right now:</p>
+    <ul>
+      <li><strong>LangGraph</strong> (recommended by LangChain for production)</li>
+      <li><strong>CrewAI</strong> (very simple for role-based multi-agent teams)</li>
+      <li><strong>AutoGen</strong> (Microsoft – agent conversations)</li>
+      <li><strong>OpenAI Swarm / Agents</strong> (lightweight & managed)</li>
+    </ul>
+    <p>Key resources to get started:</p>
+    <ul>
+      <li>→ <a href="https://www.langchain.com/langgraph" target="_blank">Official LangGraph website</a></li>
+      <li>→ <a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Free Intro to LangGraph course (LangChain Academy)</a></li>
+      <li>→ <a href="https://www.crewai.com/" target="_blank">Official CrewAI website</a></li>
+    </ul>
   </section>
 
-  <!-- Curriculum -->
-  <section id="curriculum" class="section bg-white">
-    <div class="container">
-      <h2>Curriculum A → Z</h2>
-      
-      <div class="step-card">
-        <div class="step-number">01</div>
-        <div>
-          <h3>What is an AI Agent?</h3>
-          <p>Think of an agent as a super-smart intern that can use tools...</p>
-        </div>
-      </div>
-
-      <div class="step-card">
-        <div class="step-number">02</div>
-        <div>
-          <h3>Environment Setup</h3>
-          <pre><code>pip install langchain langchain-openai crewai ...
-export GROK_API_KEY="xai-..."</code></pre>
-          <button class="copy-btn" data-copy="setup">Copy</button>
-        </div>
-      </div>
-
-      <!-- Ajoute les autres étapes ici de la même manière -->
-      
-    </div>
+  <section id="etape1">
+    <h2>Step 1 – First ultra-basic ReAct agent</h2>
+    <p class="level">Level ★★☆☆☆</p>
+    <p>The ReAct pattern = **Reason** (think) + **Act** (execute) + observe result → loop until final answer.</p>
+    <pre><code>from openai import OpenAI
+client = OpenAI()
+def get_weather(city: str) -> str:
+    <span class="highlight">return f"{city}: 24°C, sunny (2026 simulation)"</span>
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "get_weather",
+        "description": "Get the weather for a city",
+        "parameters": {
+            "type": "object",
+            "properties": {"city": {"type": "string"}},
+            "required": ["city"]
+        }
+    }
+}]
+question = "What's the weather like in Osasco today?"
+messages = [{"role": "user", "content": question}]
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=messages,
+    tools=tools
+)
+# ← The real ReAct loop starts here (see step 2)
+print(response.choices[0].message.tool_calls)
+</code></pre>
+    <p>Go further:</p>
+    <ul>
+      <li><a href="https://www.aurelio.ai/learn/langchain-agents-intro" target="_blank">LangChain Agents Tutorial 2025 (James Briggs)</a></li>
+      <li><a href="https://www.ibm.com/fr-fr/think/tutorials/using-langchain-tools-to-build-an-ai-agent" target="_blank">Tutorial in French – IBM watsonx + LangChain</a></li>
+    </ul>
   </section>
 
-  <!-- Simulator -->
-  <section id="simulator" class="section simulator-section">
-    <div class="container">
-      <h2>Build Your Agent LIVE</h2>
-      
-      <div class="simulator-card">
-        <div class="form-side">
-          <label>Framework</label>
-          <select id="framework">
-            <option>LangChain</option>
-            <option>CrewAI</option>
-            <option>AutoGen</option>
-          </select>
-
-          <!-- autres champs ... -->
-          
-          <button id="generate-btn" class="btn-primary huge">
-            GENERATE CODE
-          </button>
-        </div>
-        
-        <div id="generated-code" class="code-output hidden">
-          <pre id="code-output"></pre>
-          <button id="copy-generated">Copy</button>
-        </div>
-      </div>
-    </div>
+  <section id="etape2">
+    <h2>Step 2 – Full loop + multiple tools</h2>
+    <p class="level">Level ★★☆☆☆ → ★★★☆☆</p>
+    <p>Add a while loop, multiple tools, error handling.</p>
+    <pre><code># Simplified ReAct loop excerpt
+while True:
+    resp = client.chat.completions.create(...)
+    if resp.choices[0].message.tool_calls:
+        for call in resp.choices[0].message.tool_calls:
+            if call.function.name == "get_weather":
+                args = json.loads(call.function.arguments)
+                result = get_weather(**args)
+                messages.append({"role": "tool", "content": result, "tool_call_id": call.id})
+    else:
+        final = resp.choices[0].message.content
+        break
+</code></pre>
+    <p>Resources:</p>
+    <ul>
+      <li><a href="https://docs.langchain.com/oss/python/langgraph/overview" target="_blank">Why move to LangGraph (official docs)</a></li>
+      <li><a href="https://www.datacamp.com/fr/tutorial/crewai-vs-langgraph-vs-autogen" target="_blank">CrewAI vs LangGraph vs AutoGen comparison (in French)</a></li>
+    </ul>
   </section>
 
-  <!-- Quiz et Resources ici aussi -->
+  <section id="etape3">
+    <h2>Step 3 – Adding persistent memory</h2>
+    <p class="level">Level ★★★☆☆</p>
+    <p>Simple → advanced options:</p>
+    <ul>
+      <li>Python list (history in messages)</li>
+      <li>ConversationBufferMemory (LangChain)</li>
+      <li>Vector store + RAG for very long memory</li>
+    </ul>
+    <p>Quick LangChain example:</p>
+    <pre><code>from langchain.memory import ConversationBufferMemory
+memory = ConversationBufferMemory(return_messages=True)
+# Then inject it into the agent
+</code></pre>
+  </section>
 
-  <script src="script.js"></script>
+  <section id="etape4">
+    <h2>Step 4 – Modern control with LangGraph</h2>
+    <p class="level">Level ★★★★☆</p>
+    <p>LangGraph replaces the while loop with a **state graph** → branches, cycles, human-in-the-loop, persistence, easy debugging.</p>
+    <p>Minimal example:</p>
+    <pre><code>from langgraph.graph import StateGraph, START, END
+graph = StateGraph(...)
+graph.add_node("agent", call_llm)
+graph.add_node("tools", execute_tools)
+graph.add_conditional_edges("agent", should_continue)
+graph.add_edge("tools", "agent")
+graph.add_edge(START, "agent")
+app = graph.compile()
+</code></pre>
+    <p>Best resources 2025/2026:</p>
+    <ul>
+      <li><a href="https://academy.langchain.com/courses/intro-to-langgraph" target="_blank">Official free Intro to LangGraph course</a></li>
+      <li><a href="https://www.langchain.com/langgraph" target="_blank">LangGraph main website</a></li>
+      <li><a href="https://www.agentframeworkhub.com/blog/langgraph-tutorial-beginners-guide-2026" target="_blank">Complete beginner guide LangGraph 2026</a></li>
+    </ul>
+  </section>
+
+  <section id="etape5">
+    <h2>Step 5+ – Going to production & multi-agent systems</h2>
+    <p class="level">Level ★★★★★</p>
+    <p>Advanced topics:</p>
+    <ul>
+      <li>Multi-agent teams (researcher + writer + critic)</li>
+      <li>Secure code execution (E2B, Docker sandbox)</li>
+      <li>Observability (LangSmith, Phoenix)</li>
+      <li>Deployment (FastAPI + Celery / RabbitMQ, Vercel, Fly.io)</li>
+      <li>Local LLMs (Llama 3.3, Qwen 2.5, DeepSeek-R1)</li>
+    </ul>
+    <p>Production resources 2025/2026:</p>
+    <ul>
+      <li><a href="https://www.getmaxim.ai/articles/top-5-ai-agent-frameworks-in-2025-a-practical-guide-for-ai-builders" target="_blank">Top 5 agent frameworks 2025 (practical guide)</a></li>
+      <li><a href="https://www.firecrawl.dev/blog/best-open-source-agent-frameworks-2025" target="_blank">Best open-source agent frameworks 2025</a></li>
+      <li><a href="https://www.langflow.org/blog/the-complete-guide-to-choosing-an-ai-agent-framework-in-2025" target="_blank">Complete guide to choosing an agent framework 2025</a></li>
+    </ul>
+    <p>Realistic goal by end of 2026: 24/7 autonomous agent with minimal supervision.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Guide created for AMIN – Osasco, BR • 2025–2026<br>
+  Warm orange/amber theme • Feel free to share & modify 🚀</p>
+</footer>
+
 </body>
 </html>
