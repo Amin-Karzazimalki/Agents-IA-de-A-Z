@@ -3,102 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Agents A to Z • Agents IA de A à Z • Agentes IA de A a Z • وكلاء الذكاء الاصطناعي</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>AI Agent Academy • Build Agents from A to Z</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1 data-lang="en">AI Agents from A to Z</h1>
-  <h1 data-lang="fr">Agents IA de A à Z</h1>
-  <h1 data-lang="pt">Agentes IA de A a Z</h1>
-  <h1 data-lang="ar">وكلاء الذكاء الاصطناعي من الألف إلى الياء</h1>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <span class="logo-font text-orange">Agent</span><span class="logo-font text-amber">Academy</span>
+      </div>
 
-  <p class="subtitle" data-lang="en">Complete practical guide – From zero to production in 2025/2026</p>
-  <p class="subtitle" data-lang="fr">Guide ultra-complet et à jour – De zéro à la production en 2025/2026</p>
-  <p class="subtitle" data-lang="pt">Guia prático completo – Do zero à produção em 2025/2026</p>
-  <p class="subtitle" data-lang="ar">دليل عملي كامل – من الصفر إلى الإنتاج في 2025/2026</p>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#curriculum">Curriculum</a>
+        <a href="#simulator">Simulator</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#resources">Resources</a>
+      </div>
 
-  <p class="description" data-lang="en">Learn ReAct, LangGraph, CrewAI, AutoGen… with the best resources</p>
-  <p class="description" data-lang="fr">Apprends le ReAct, LangGraph, CrewAI, AutoGen… avec les meilleures ressources actuelles</p>
-  <p class="description" data-lang="pt">Aprenda ReAct, LangGraph, CrewAI, AutoGen… com os melhores recursos atuais</p>
-  <p class="description" data-lang="ar">تعلم ReAct و LangGraph و CrewAI و AutoGen… مع أفضل الموارد الحالية</p>
-</header>
+      <button class="btn-primary" onclick="scrollToSection('simulator')">
+        START BUILDING
+      </button>
 
-<div class="lang-switcher">
-  <input type="radio" id="lang-en" name="lang" value="en" checked>
-  <label for="lang-en">English</label>
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
 
-  <input type="radio" id="lang-fr" name="lang" value="fr">
-  <label for="lang-fr">Français</label>
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <a href="#overview">Overview</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#simulator">Simulator</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#resources">Resources</a>
+    </div>
+  </nav>
 
-  <input type="radio" id="lang-pt" name="lang" value="pt">
-  <label for="lang-pt">Português (BR)</label>
+  <!-- Hero -->
+  <header class="hero hero-bg">
+    <div class="container hero-content">
+      <h1>Build AI Agents<br><span>from A to Z</span></h1>
+      <p>The most welcoming, step-by-step educational experience to create autonomous AI agents.</p>
+      
+      <div class="hero-buttons">
+        <button class="btn-primary large" onclick="scrollToSection('curriculum')">
+          START THE COURSE
+        </button>
+        <button class="btn-outline large" onclick="scrollToSection('simulator')">
+          TRY THE SIMULATOR →
+        </button>
+      </div>
+    </div>
+  </header>
 
-  <input type="radio" id="lang-ar" name="lang" value="ar">
-  <label for="lang-ar">العربية</label>
-</div>
+  <!-- Overview -->
+  <section id="overview" class="section">
+    <div class="container">
+      <h2>What You Will Learn</h2>
+      <!-- ... le reste du contenu overview ... -->
+      <div class="grid-2">
+        <!-- texte à gauche -->
+        <div>
+          <ul class="feature-list">
+            <li><strong>Understand AI Agents</strong><br>Autonomous systems that plan, use tools...</li>
+            <li><strong>Master frameworks</strong><br>LangChain • CrewAI • AutoGen...</li>
+            <!-- etc -->
+          </ul>
+        </div>
+        <!-- carte à droite -->
+        <div class="card demo-card">
+          <div class="demo-visual">🛠️</div>
+          <h3>Real code — ready to copy & run</h3>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<nav>
-  <ul data-lang="en">
-    <li><a href="#intro">Introduction</a></li>
-    <li><a href="#etape1">Step 1 – Basic ReAct</a></li>
-    <li><a href="#etape2">Step 2 – Multi-tools</a></li>
-    <li><a href="#etape3">Step 3 – Memory</a></li>
-    <li><a href="#etape4">Step 4 – LangGraph</a></li>
-    <li><a href="#etape5">Step 5+ – Production</a></li>
-  </ul>
-  <ul data-lang="fr">
-    <li><a href="#intro">Introduction</a></li>
-    <li><a href="#etape1">Étape 1 – ReAct basique</a></li>
-    <li><a href="#etape2">Étape 2 – Multi-outils</a></li>
-    <li><a href="#etape3">Étape 3 – Mémoire</a></li>
-    <li><a href="#etape4">Étape 4 – LangGraph</a></li>
-    <li><a href="#etape5">Étape 5+ – Production</a></li>
-  </ul>
-  <ul data-lang="pt">
-    <li><a href="#intro">Introdução</a></li>
-    <li><a href="#etape1">Etapa 1 – ReAct básico</a></li>
-    <li><a href="#etape2">Etapa 2 – Multi-ferramentas</a></li>
-    <li><a href="#etape3">Etapa 3 – Memória</a></li>
-    <li><a href="#etape4">Etapa 4 – LangGraph</a></li>
-    <li><a href="#etape5">Etapa 5+ – Produção</a></li>
-  </ul>
-  <ul data-lang="ar">
-    <li><a href="#intro">المقدمة</a></li>
-    <li><a href="#etape1">الخطوة 1 – ReAct الأساسي</a></li>
-    <li><a href="#etape2">الخطوة 2 – أدوات متعددة</a></li>
-    <li><a href="#etape3">الخطوة 3 – الذاكرة</a></li>
-    <li><a href="#etape4">الخطوة 4 – LangGraph</a></li>
-    <li><a href="#etape5">الخطوة 5+ – الإنتاج</a></li>
-  </ul>
-</nav>
+  <!-- Curriculum -->
+  <section id="curriculum" class="section bg-white">
+    <div class="container">
+      <h2>Curriculum A → Z</h2>
+      
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div>
+          <h3>What is an AI Agent?</h3>
+          <p>Think of an agent as a super-smart intern that can use tools...</p>
+        </div>
+      </div>
 
-<main>
-  <!-- Contenu multilingue ici – identique à la version précédente -->
-  <!-- Pour ne pas répéter 5 sections × 4 langues ici, je mets seulement un exemple -->
-  <!-- Colle le contenu des <div class="lang-content en/fr/pt/ar"> de la réponse précédente -->
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div>
+          <h3>Environment Setup</h3>
+          <pre><code>pip install langchain langchain-openai crewai ...
+export GROK_API_KEY="xai-..."</code></pre>
+          <button class="copy-btn" data-copy="setup">Copy</button>
+        </div>
+      </div>
 
-  <!-- Exemple court pour intro en EN -->
-  <div class="lang-content en">
-    <section id="intro">
-      <h2>Introduction – Why are AI agents exploding in 2025/2026?</h2>
-      <!-- ... le reste comme avant ... -->
-    </section>
-    <!-- autres sections -->
-  </div>
+      <!-- Ajoute les autres étapes ici de la même manière -->
+      
+    </div>
+  </section>
 
-  <!-- Colle ici les autres lang-content (fr, pt, ar) de la réponse précédente -->
+  <!-- Simulator -->
+  <section id="simulator" class="section simulator-section">
+    <div class="container">
+      <h2>Build Your Agent LIVE</h2>
+      
+      <div class="simulator-card">
+        <div class="form-side">
+          <label>Framework</label>
+          <select id="framework">
+            <option>LangChain</option>
+            <option>CrewAI</option>
+            <option>AutoGen</option>
+          </select>
 
-</main>
+          <!-- autres champs ... -->
+          
+          <button id="generate-btn" class="btn-primary huge">
+            GENERATE CODE
+          </button>
+        </div>
+        
+        <div id="generated-code" class="code-output hidden">
+          <pre id="code-output"></pre>
+          <button id="copy-generated">Copy</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p data-lang="en">Guide created for AMIN – Osasco, BR • 2025–2026<br>Warm orange/amber theme • Share & modify freely 🚀</p>
-  <p data-lang="fr">Guide créé pour AMIN – Osasco, BR • 2025–2026<br>Thème chaleureux orange/ambre • Partage & modifie librement 🚀</p>
-  <p data-lang="pt">Guia criado para AMIN – Osasco, BR • 2025–2026<br>Tema laranja/âmbar acolhedor • Compartilhe & modifique livremente 🚀</p>
-  <p data-lang="ar">دليل تم إنشاؤه لـ AMIN – أوساسكو، البرازيل • 2025–2026<br>ثيم برتقالي/كهرماني دافئ • شارك وعدّل بحرية 🚀</p>
-</footer>
+  <!-- Quiz et Resources ici aussi -->
 
-<script src="scripts.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
