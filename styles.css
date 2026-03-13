@@ -76,8 +76,8 @@ nav {
 }
 
 .nav-logo {
-  width: 20px;            /* taille raisonnable pour nav */
-  height: 20px;
+  width: 40px;            /* taille raisonnable pour nav */
+  height: 40px;
   object-fit: contain;
   border-radius: 12px;
   background: rgba(245, 158, 11, 0.15);
