@@ -1,27 +1,47 @@
-// scripts.js
-document.addEventListener('DOMContentLoaded', () => {
-  const radios = document.querySelectorAll('input[name="lang"]');
-  
-  function updateLanguage(lang) {
-    document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
-    document.querySelectorAll('[data-lang]').forEach(el => {
-      el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
-    });
-    document.querySelectorAll('nav ul').forEach(ul => {
-      ul.style.display = ul.getAttribute('data-lang') === lang ? 'flex' : 'none';
-    });
-    document.querySelectorAll('footer p').forEach(p => {
-      p.style.display = p.getAttribute('data-lang') === lang ? 'block' : 'none';
-    });
-  }
+// Mobile menu
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
 
-  radios.forEach(radio => {
-    radio.addEventListener('change', (e) => {
-      updateLanguage(e.target.value);
-    });
-  });
-
-  // Initialisation
-  const initialLang = document.querySelector('input[name="lang"]:checked').value;
-  updateLanguage(initialLang);
+mobileBtn?.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+  mobileBtn.innerHTML = mobileMenu.classList.contains('hidden')
+    ? '<i class="fa-solid fa-bars"></i>'
+    : '<i class="fa-solid fa-xmark"></i>';
 });
+
+// Scroll smooth
+function scrollToSection(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Copy buttons
+document.querySelectorAll('[data-copy]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.previousElementSibling?.querySelector('code') || btn.previousElementSibling;
+    if (!target) return;
+    
+    navigator.clipboard.writeText(target.textContent.trim());
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = original, 1800);
+  });
+});
+
+// Simulator (simplifié ici – tu peux le compléter)
+const generateBtn = document.getElementById('generate-btn');
+const codeOutput = document.getElementById('generated-code');
+const codeBlock = document.getElementById('code-output');
+
+generateBtn?.addEventListener('click', () => {
+  const framework = document.getElementById('framework')?.value || 'LangChain';
+  
+  let code = `from langchain_openai import ChatOpenAI\n`;
+  code    += `# Your ${framework} agent code will appear here...\n`;
+  code    += `print("Hello from your new AI Agent!")`;
+  
+  codeBlock.textContent = code;
+  codeOutput.classList.remove('hidden');
+  codeOutput.scrollIntoView({ behavior: 'smooth' });
+});
+
+// Tu peux ajouter le quiz ici aussi comme dans la version précédente
